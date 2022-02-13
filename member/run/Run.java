@@ -1,26 +1,26 @@
-package net.kh.member.run;
+package member.run;
 
-import net.kh.member.model.Member;
+import member.controller.MemberManager;
+import member.model.vo.Gold;
+import member.model.vo.Silver;
+import member.model.vo.VVip;
+import member.model.vo.Vip;
 
 public class Run {
+	
 	public static void main(String[] args) {
-		Member member = new Member();
+		MemberManager m = new MemberManager();
+		m.silverInsert(new Silver("홍길동", "Silver",1000));
+		m.silverInsert(new Silver("김말똥", "Silver",2000));
+		m.silverInsert(new Silver("고길동", "Silver",3000));
+		m.goldInsert(new Gold("김회장", "Gold",1000));
+		m.goldInsert(new Gold("이회장", "Gold",2000));
+		m.goldInsert(new Gold("오회장", "Gold",3000));
 		
-		member.setMemberId("lks999");
-		member.setMemberPwd("0000000");
-		member.setMemberName("이경석");
-		member.setAge(27);
-		member.setGender('남');
-		member.setPhone("010-0000-0000");
-		member.setEmail("abc@naver.com");
+		m.vipInsert(new Vip("이부자", "Vip",10000));
 		
-		System.out.printf("Id : %s\n", member.getMemberId());
-		System.out.printf("Pwd : %s\n", member.getMemberPwd());
-		System.out.printf("Name : %s\n", member.getMemberName());
-		System.out.printf("age : %d\n", member.getAge());
-		System.out.printf("Gender : %c\n", member.getGender());
-		System.out.printf("phone number : %s\n", member.getPhone());
-		System.out.printf("email : %s\n", member.getEmail());
+		m.vvipInsert(new VVip("김갑부", "VVip",100000));
+		m.printData();
 	}
 
 }
